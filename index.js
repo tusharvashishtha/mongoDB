@@ -3,6 +3,8 @@ const app = express();
 
 require('./main')();
 
+const routes = require('./Route/root')
+
 const User = require('./User');
 const { default: mongoose } = require('mongoose');
 
@@ -49,3 +51,11 @@ async function deleteOne(){
     }
 }
 // deleteOne();
+
+app.use(express.json())
+
+app.use('/', routes )
+
+app.listen(3000, () => {
+    console.log("Listening to port 3000")
+})
