@@ -26,4 +26,26 @@ async function findUser() {
     console.log(searchUser)
 }
 
-findUser();
+// findUser();
+
+async function updateUser(){
+    try{
+        const updateUser = await User.updateOne({name : "Tushar"}, {age : 26})
+        console.log(updateUser)
+    }
+    catch(err){
+        console.log(err)
+    }
+}
+// updateUser()
+
+async function deleteOne(){
+    try{
+        const deleteUser = await User.deleteMany({name : "Kim"})
+        console.log(deleteUser)
+    }
+    catch(err) {
+        console.log(err)
+    }
+}
+// deleteOne();
